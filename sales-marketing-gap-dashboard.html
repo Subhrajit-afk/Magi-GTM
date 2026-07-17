@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 46 Questions — Sales & Marketing Gap Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E9EBE5;
+  --paper-2:#F3F4F0;
+  --paper-3:#FFFFFF;
+  --ink:#16181A;
+  --ink-70:#41474C;
+  --ink-45:#6E767D;
+  --rule:#CBCFC6;
+  --rule-soft:#DDE0D9;
+  --cobalt:#1F3FD8;
+  --cobalt-2:#5A72E0;
+  --cobalt-3:#9BA7E9;
+  --cobalt-wash:#E3E7FB;
+  --grey-t4:#98A099;
+  --amber:#9C6B15;
+  --amber-wash:#F5EAD6;
+  --ff-display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --ff-body:'Inter Tight','Inter',system-ui,sans-serif;
+  --ff-mono:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--ff-body);
+  font-size:15px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px 80px}
+
+/* ---------- masthead ---------- */
+.masthead{padding:48px 0 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--ff-mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-45);
+  display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:22px;
+}
+.eyebrow span{white-space:nowrap}
+h1{
+  font-family:var(--ff-display);
+  font-weight:800;
+  font-stretch:118%;
+  font-size:clamp(38px,6.4vw,74px);
+  line-height:.92;
+  letter-spacing:-.025em;
+  text-transform:uppercase;
+  max-width:14ch;
+}
+h1 em{font-style:normal;color:var(--cobalt)}
+.standfirst{
+  margin-top:20px;max-width:62ch;font-size:16.5px;color:var(--ink-70);
+}
+.standfirst strong{color:var(--ink);font-weight:600}
+
+/* ---------- verdict strip (signature) ---------- */
+.verdict{
+  position:sticky;top:0;z-index:40;
+  background:var(--ink);color:var(--paper-2);
+  margin-top:0;
+  border-bottom:1px solid var(--ink);
+}
+.verdict-inner{
+  max-width:1180px;margin:0 auto;padding:12px 24px;
+  display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+}
+.verdict-line{
+  font-family:var(--ff-mono);font-size:12.5px;letter-spacing:.01em;
+  display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+}
+.verdict-line b{color:#fff;font-weight:600}
+.verdict-line .sep{color:#5c636a}
+.verdict-line .hl{color:var(--cobalt-3)}
+.dist{display:flex;gap:2px;align-items:center;margin-left:auto}
+.dist-seg{height:9px;min-width:2px;transition:width .25s ease}
+.dist-seg[data-t="1"]{background:var(--cobalt)}
+.dist-seg[data-t="2"]{background:var(--cobalt-2)}
+.dist-seg[data-t="3"]{background:var(--cobalt-3)}
+.dist-seg[data-t="4"]{background:var(--grey-t4)}
+.dist-label{font-family:var(--ff-mono);font-size:10px;letter-spacing:.1em;color:#8a9199;text-transform:uppercase;margin-right:8px}
+
+/* ---------- section headers ---------- */
+.sec{padding-top:44px}
+.sec-head{
+  display:flex;align-items:baseline;gap:14px;
+  border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:20px;
+}
+.sec-head h2{
+  font-family:var(--ff-display);font-weight:700;font-stretch:112%;
+  font-size:15px;letter-spacing:.1em;text-transform:uppercase;
+}
+.sec-head .note{font-family:var(--ff-mono);font-size:11px;color:var(--ink-45);margin-left:auto}
+
+/* ---------- legend ---------- */
+details.legend{border:1px solid var(--rule);background:var(--paper-2)}
+details.legend summary{
+  cursor:pointer;padding:14px 18px;list-style:none;
+  font-family:var(--ff-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;
+}
+details.legend summary::-webkit-details-marker{display:none}
+details.legend summary::after{content:'[ + open ]';margin-left:auto;color:var(--cobalt);font-size:11px}
+details.legend[open] summary::after{content:'[ – close ]'}
+details.legend summary:hover{background:var(--cobalt-wash)}
+.legend-body{padding:4px 18px 22px;border-top:1px solid var(--rule-soft)}
+.legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;margin-top:18px}
+.legend-block h3{
+  font-family:var(--ff-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-45);margin-bottom:10px;padding-bottom:6px;border-bottom:1px dotted var(--rule);
+}
+.legend-item{display:flex;gap:10px;margin-bottom:9px;font-size:13.5px;line-height:1.4}
+.legend-item .k{flex:0 0 auto;min-width:52px}
+.legend-item .v{color:var(--ink-70)}
+.legend-item .v b{color:var(--ink);font-weight:600}
+.legend-note{
+  margin-top:20px;padding:12px 14px;background:var(--amber-wash);
+  border-left:3px solid var(--amber);font-size:13px;color:#5c4413;
+}
+
+/* meter glyph */
+.meter{display:inline-flex;gap:2px;vertical-align:middle}
+.meter i{width:5px;height:13px;background:var(--rule);display:block;border-radius:0}
+.meter[data-tier="1"] i:nth-child(-n+4){background:var(--cobalt)}
+.meter[data-tier="2"] i:nth-child(-n+3){background:var(--cobalt-2)}
+.meter[data-tier="3"] i:nth-child(-n+2){background:var(--cobalt-3)}
+.meter[data-tier="4"] i:nth-child(-n+1){background:var(--grey-t4)}
+
+.chip{
+  font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.06em;
+  padding:2px 6px;border:1px solid var(--rule);background:var(--paper-3);
+  text-transform:uppercase;white-space:nowrap;display:inline-block;
+}
+.chip.auto-Y{border-color:var(--cobalt);color:var(--cobalt);background:var(--cobalt-wash)}
+.chip.auto-P{border-color:var(--ink-45);color:var(--ink-70)}
+.chip.auto-N{border-color:var(--amber);color:var(--amber);background:var(--amber-wash)}
+.chip.ev-Sourced{border-color:var(--cobalt);color:var(--cobalt)}
+.chip.ev-Inferred{border-color:var(--rule);color:var(--ink-45);border-style:dashed}
+
+/* ---------- filters ---------- */
+.filters{border:1px solid var(--rule);background:var(--paper-2);padding:18px}
+.f-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.f-row:last-of-type{margin-bottom:0}
+.f-label{
+  font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-45);flex:0 0 92px;
+}
+button.tog{
+  font-family:var(--ff-mono);font-size:11.5px;letter-spacing:.04em;
+  padding:5px 10px;border:1px solid var(--rule);background:var(--paper-3);
+  color:var(--ink-70);cursor:pointer;transition:none;
+}
+button.tog:hover{border-color:var(--ink)}
+button.tog[aria-pressed="true"]{background:var(--ink);color:var(--paper-2);border-color:var(--ink)}
+button.tog:focus-visible,input:focus-visible,summary:focus-visible,button:focus-visible{
+  outline:2px solid var(--cobalt);outline-offset:2px;
+}
+input.search{
+  font-family:var(--ff-body);font-size:13.5px;padding:6px 10px;
+  border:1px solid var(--rule);background:var(--paper-3);color:var(--ink);
+  min-width:220px;flex:1 1 220px;max-width:340px;
+}
+button.act{
+  font-family:var(--ff-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  padding:6px 12px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;
+}
+button.act:hover{background:var(--ink);color:var(--paper-2)}
+button.act.on{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+
+/* ---------- table ---------- */
+.tbl{margin-top:22px;border-top:1px solid var(--ink)}
+.thead{
+  display:grid;grid-template-columns:44px 1fr 74px 96px 92px 96px 118px;
+  gap:12px;padding:9px 10px;border-bottom:1px solid var(--ink);
+  font-family:var(--ff-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-45);
+  position:sticky;top:41px;background:var(--paper);z-index:20;
+}
+.tier-band{
+  display:flex;align-items:center;gap:10px;
+  padding:16px 10px 7px;margin-top:8px;
+  border-bottom:1px dotted var(--rule);
+}
+.tier-band .bar{width:26px;height:3px}
+.tier-band[data-t="1"] .bar{background:var(--cobalt)}
+.tier-band[data-t="2"] .bar{background:var(--cobalt-2)}
+.tier-band[data-t="3"] .bar{background:var(--cobalt-3)}
+.tier-band[data-t="4"] .bar{background:var(--grey-t4)}
+.tier-band h3{
+  font-family:var(--ff-display);font-weight:700;font-stretch:112%;
+  font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+}
+.tier-band .sub{font-family:var(--ff-mono);font-size:11px;color:var(--ink-45)}
+.tier-band .cnt{margin-left:auto;font-family:var(--ff-mono);font-size:11px;color:var(--ink-45)}
+
+.row{
+  display:grid;grid-template-columns:44px 1fr 74px 96px 92px 96px 118px;
+  gap:12px;align-items:center;padding:10px;
+  border-bottom:1px solid var(--rule-soft);cursor:pointer;
+  border-left:3px solid transparent;
+}
+.row:hover{background:var(--paper-2)}
+.row[data-key="1"]{border-left-color:var(--cobalt)}
+.row .num{font-family:var(--ff-mono);font-size:12px;color:var(--ink-45)}
+.row .q{font-size:14.5px;line-height:1.35}
+.row .q .star{color:var(--cobalt);font-size:11px;font-family:var(--ff-mono);margin-left:6px;letter-spacing:.05em}
+.row .gaps{font-family:var(--ff-mono);font-size:11px;color:var(--ink-45)}
+.row[aria-expanded="true"]{background:var(--cobalt-wash)}
+.detail{
+  padding:2px 10px 20px 57px;border-bottom:1px solid var(--rule-soft);
+  background:var(--cobalt-wash);font-size:13.5px;color:var(--ink-70);
+}
+.detail p{max-width:78ch;margin-bottom:8px}
+.detail .lbl{
+  font-family:var(--ff-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-45);display:block;margin-bottom:3px;
+}
+.detail .ev{margin-top:10px;padding-top:10px;border-top:1px dotted var(--rule)}
+.empty{padding:60px 10px;text-align:center;color:var(--ink-45);font-family:var(--ff-mono);font-size:13px}
+.empty b{display:block;color:var(--ink);font-size:15px;margin-bottom:8px;letter-spacing:.04em}
+
+/* ---------- workflows ---------- */
+.wf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;border:1px solid var(--rule)}
+.wf-card{padding:16px;border-right:1px solid var(--rule);background:var(--paper-2)}
+.wf-card:last-child{border-right:none}
+.wf-card .code{font-family:var(--ff-mono);font-size:11px;letter-spacing:.1em;color:var(--cobalt)}
+.wf-card h3{font-family:var(--ff-display);font-weight:700;font-stretch:110%;font-size:14px;margin:6px 0 8px;letter-spacing:-.01em}
+.wf-card p{font-size:13px;color:var(--ink-70);margin-bottom:10px}
+.wf-card .stat{font-family:var(--ff-mono);font-size:11px;color:var(--ink-45)}
+.wf-card.first{background:var(--cobalt-wash);border-bottom:3px solid var(--cobalt)}
+
+/* ---------- caveats ---------- */
+.caveats{border:1px solid var(--amber);background:var(--amber-wash);padding:20px 22px}
+.caveats h3{font-family:var(--ff-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+.caveats ol{padding-left:20px}
+.caveats li{font-size:13.5px;color:#5c4413;margin-bottom:9px;line-height:1.5;max-width:82ch}
+.caveats li b{color:#3d2c08}
+
+footer{margin-top:44px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:var(--ff-mono);font-size:11px;color:var(--ink-45);
+  display:flex;flex-wrap:wrap;gap:8px 24px;}
+
+@media (max-width:880px){
+  .thead{display:none}
+  .row{grid-template-columns:34px 1fr;gap:6px 10px;padding:12px 8px}
+  .row .q{grid-column:2}
+  .row .meta-m{grid-column:2;display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+  .row .cell-d{display:none}
+  .detail{padding-left:44px}
+  .verdict-inner{padding:10px 16px}
+  .dist{width:100%;margin-left:0;margin-top:6px}
+  .wrap{padding:0 16px 60px}
+  .f-label{flex:0 0 100%}
+}
+@media (min-width:881px){ .row .meta-m{display:none} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+@media print{
+  .verdict,.filters{position:static}
+  .row{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<div class="verdict" role="status" aria-live="polite">
+  <div class="verdict-inner">
+    <div class="verdict-line">
+      <span><b id="v-showing">46</b> of 46 questions</span>
+      <span class="sep">/</span>
+      <span><b id="v-auto">30</b> automatable <span class="hl" id="v-autopct">(65%)</span></span>
+      <span class="sep">/</span>
+      <span><b id="v-crit">9</b> critical</span>
+      <span class="sep">/</span>
+      <span><b id="v-hands">4</b> hands-off</span>
+    </div>
+    <div class="dist">
+      <span class="dist-label">Severity mix</span>
+      <span class="dist-seg" data-t="1" id="d1" title="Tier 1"></span>
+      <span class="dist-seg" data-t="2" id="d2" title="Tier 2"></span>
+      <span class="dist-seg" data-t="3" id="d3" title="Tier 3"></span>
+      <span class="dist-seg" data-t="4" id="d4" title="Tier 4"></span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">
+      <span>Sales &amp; marketing gap research</span>
+      <span>·</span>
+      <span>Working document</span>
+      <span>·</span>
+      <span>July 2026</span>
+      <span>·</span>
+      <span>Click any row for reasoning</span>
+    </div>
+    <h1>The 46 questions <em>nobody has</em> a workflow for</h1>
+    <p class="standfirst">
+      Sales and marketing don't fail at strategy. They fail at forty-six small questions asked every
+      morning that nothing in the stack answers. This maps all of them — sorted by what it costs
+      when the answer is wrong, not by how often it's asked.
+      <strong>Thirty of the forty-six are mechanical.</strong> That's the opportunity. The other sixteen
+      are judgment or incentives, and automating them makes things worse.
+    </p>
+  </header>
+
+  <!-- LEGEND -->
+  <section class="sec">
+    <div class="sec-head">
+      <h2>How to read this</h2>
+      <span class="note">Open before you filter</span>
+    </div>
+    <details class="legend" open>
+      <summary>Every code on this page, explained</summary>
+      <div class="legend-body">
+        <div class="legend-grid">
+
+          <div class="legend-block">
+            <h3>Severity tier</h3>
+            <p style="font-size:13px;color:var(--ink-70);margin-bottom:12px">
+              Ranked by <b>blast radius</b> — does a wrong answer poison other answers downstream?
+              Not by frequency. "Asked often" is not the same as "expensive when wrong."
+            </p>
+            <div class="legend-item">
+              <span class="k"><span class="meter" data-tier="1"><i></i><i></i><i></i><i></i></span></span>
+              <span class="v"><b>Tier 1 · Critical.</b> Dependency roots and silent failures. Everything below is unreliable until these are answered.</span>
+            </div>
+            <div class="legend-item">
+              <span class="k"><span class="meter" data-tier="2"><i></i><i></i><i></i><i></i></span></span>
+              <span class="v"><b>Tier 2 · High.</b> Directly costs pipeline. Several have published failure rates behind them.</span>
+            </div>
+            <div class="legend-item">
+              <span class="k"><span class="meter" data-tier="3"><i></i><i></i><i></i><i></i></span></span>
+              <span class="v"><b>Tier 3 · Medium.</b> Real friction, contained blast radius.</span>
+            </div>
+            <div class="legend-item">
+              <span class="k"><span class="meter" data-tier="4"><i></i><i></i><i></i><i></i></span></span>
+              <span class="v"><b>Tier 4 · Hands-off.</b> Not low-stakes — low-<em>automatable</em>. Judgment calls. Building these produces confident wrong answers.</span>
+            </div>
+          </div>
+
+          <div class="legend-block">
+            <h3>Who asks it</h3>
+            <div class="legend-item"><span class="k"><span class="chip">Sales</span></span><span class="v">A rep, SDR, or sales manager. 15 questions.</span></div>
+            <div class="legend-item"><span class="k"><span class="chip">Mktg</span></span><span class="v">Demand gen, content, campaign owner. 7 questions.</span></div>
+            <div class="legend-item"><span class="k"><span class="chip">Both</span></span><span class="v">Asked by both sides, usually with different answers. That disagreement <em>is</em> the gap. 18 questions.</span></div>
+            <div class="legend-item"><span class="k"><span class="chip">Ops</span></span><span class="v">RevOps, marketing ops, or nobody. 6 questions.</span></div>
+            <p style="font-size:12.5px;color:var(--ink-45);margin-top:10px">
+              Single primary owner shown. Many questions touch two teams; the chip names who
+              feels the pain first.
+            </p>
+          </div>
+
+          <div class="legend-block">
+            <h3>Automatable</h3>
+            <div class="legend-item"><span class="k"><span class="chip auto-Y">Yes</span></span><span class="v">Mechanical. Deterministic inputs, deterministic answer. Build it. <b>30 questions.</b></span></div>
+            <div class="legend-item"><span class="k"><span class="chip auto-P">Partly</span></span><span class="v">A system can assemble the evidence; a human still decides. <b>12 questions.</b></span></div>
+            <div class="legend-item"><span class="k"><span class="chip auto-N">No</span></span><span class="v">Judgment or incentives. Not a tooling problem, and tooling will not fix it. <b>4 questions.</b></span></div>
+          </div>
+
+          <div class="legend-block">
+            <h3>Evidence quality</h3>
+            <div class="legend-item"><span class="k"><span class="chip ev-Sourced">Sourced</span></span><span class="v">A named study puts a number on this failure. Open the row to see which. <b>13 questions.</b></span></div>
+            <div class="legend-item"><span class="k"><span class="chip ev-Inferred">Inferred</span></span><span class="v">Derived from the gap analysis, not measured. Plausible, untested. <b>33 questions.</b></span></div>
+            <p style="font-size:12.5px;color:var(--ink-45);margin-top:10px">
+              Filter to <b>Inferred</b> to see exactly what needs validating with real users
+              before anything gets built.
+            </p>
+          </div>
+
+          <div class="legend-block">
+            <h3>Other marks</h3>
+            <div class="legend-item"><span class="k" style="color:var(--cobalt);font-family:var(--ff-mono);font-size:11px">80/20</span><span class="v">The 11 questions carrying most of the value. Blue left edge on the row.</span></div>
+            <div class="legend-item"><span class="k" style="font-family:var(--ff-mono);font-size:11px;color:var(--ink-45)">Gap</span><span class="v">Which structural gap from the underlying research this question comes from. Cross-reference only.</span></div>
+            <div class="legend-item"><span class="k" style="font-family:var(--ff-mono);font-size:11px;color:var(--ink-45)">Workflow</span><span class="v">Which of the six builds this question lands in. See the workflow section below.</span></div>
+          </div>
+
+        </div>
+        <div class="legend-note">
+          <b>Severity and evidence are judgment, not measurement.</b> No published study measures what
+          sales and marketing teams ask daily — this list is derived from gap analysis. The tiering is a
+          defensible argument, not a finding. Treat the tiers as buckets rather than a strict ranking.
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="sec">
+    <div class="sec-head">
+      <h2>Filter</h2>
+      <span class="note" id="f-summary">No filters active</span>
+    </div>
+    <div class="filters">
+      <div class="f-row">
+        <span class="f-label">Severity</span>
+        <button class="tog" data-f="tier" data-v="1" aria-pressed="false">Tier 1 · Critical</button>
+        <button class="tog" data-f="tier" data-v="2" aria-pressed="false">Tier 2 · High</button>
+        <button class="tog" data-f="tier" data-v="3" aria-pressed="false">Tier 3 · Medium</button>
+        <button class="tog" data-f="tier" data-v="4" aria-pressed="false">Tier 4 · Hands-off</button>
+      </div>
+      <div class="f-row">
+        <span class="f-label">Team</span>
+        <button class="tog" data-f="team" data-v="S" aria-pressed="false">Sales</button>
+        <button class="tog" data-f="team" data-v="M" aria-pressed="false">Marketing</button>
+        <button class="tog" data-f="team" data-v="B" aria-pressed="false">Both</button>
+        <button class="tog" data-f="team" data-v="O" aria-pressed="false">Ops / RevOps</button>
+      </div>
+      <div class="f-row">
+        <span class="f-label">Automatable</span>
+        <button class="tog" data-f="auto" data-v="Y" aria-pressed="false">Yes</button>
+        <button class="tog" data-f="auto" data-v="P" aria-pressed="false">Partly</button>
+        <button class="tog" data-f="auto" data-v="N" aria-pressed="false">No</button>
+      </div>
+      <div class="f-row">
+        <span class="f-label">Workflow</span>
+        <button class="tog" data-f="wf" data-v="SYS" aria-pressed="false">Systems health</button>
+        <button class="tog" data-f="wf" data-v="CTX" aria-pressed="false">Context assembly</button>
+        <button class="tog" data-f="wf" data-v="QUE" aria-pressed="false">Worklist</button>
+        <button class="tog" data-f="wf" data-v="LOOP" aria-pressed="false">Closed loop</button>
+        <button class="tog" data-f="wf" data-v="LEAK" aria-pressed="false">Leak report</button>
+        <button class="tog" data-f="wf" data-v="JUDG" aria-pressed="false">No workflow</button>
+      </div>
+      <div class="f-row">
+        <span class="f-label">Evidence</span>
+        <button class="tog" data-f="ev" data-v="Sourced" aria-pressed="false">Sourced</button>
+        <button class="tog" data-f="ev" data-v="Inferred" aria-pressed="false">Inferred</button>
+      </div>
+      <div class="f-row">
+        <span class="f-label">Find</span>
+        <input class="search" id="search" type="search" placeholder="Search the question text…" aria-label="Search questions">
+        <button class="act" id="btn-8020" aria-pressed="false">Show the 80/20 only</button>
+        <button class="act" id="btn-reset">Reset all</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLE -->
+  <section class="sec">
+    <div class="sec-head">
+      <h2>The questions</h2>
+      <span class="note">Sorted by severity · click a row to open</span>
+    </div>
+    <div class="tbl">
+      <div class="thead" aria-hidden="true">
+        <span>#</span><span>Question</span><span>Severity</span><span>Team</span>
+        <span>Auto</span><span>Evidence</span><span>Workflow · Gap</span>
+      </div>
+      <div id="rows"></div>
+    </div>
+  </section>
+
+  <!-- WORKFLOWS -->
+  <section class="sec">
+    <div class="sec-head">
+      <h2>Six workflows, not forty-six</h2>
+      <span class="note">Build left to right</span>
+    </div>
+    <div class="wf-grid" id="wf-grid"></div>
+  </section>
+
+  <!-- CAVEATS -->
+  <section class="sec">
+    <div class="sec-head">
+      <h2>What's shaky here</h2>
+      <span class="note">Read before acting on it</span>
+    </div>
+    <div class="caveats">
+      <h3>Four things to hold loosely</h3>
+      <ol>
+        <li><b>The question list is derived, not observed.</b> Nothing published measures what these
+          roles ask daily. Thirty-three of forty-six are marked Inferred. Validate with real users
+          before building — filter to Inferred to see the exact set.</li>
+        <li><b>The evidence base is vendor-dominated.</b> Nearly every source on sales–marketing
+          gaps is published by a company selling the fix. Where numbers appear in the row detail,
+          the strongest are Harvard Business Review (2011), MIT/InsideSales (2007), Forrester and
+          Gartner — and the Forrester/Gartner reports are paywalled and only seen secondhand.
+          Several widely-quoted stats in this space have no traceable primary source at all.</li>
+        <li><b>Frequency is guessed.</b> Everything is labelled a daily question. Some are plainly
+          weekly, some event-driven. For workflow design, cadence matters as much as the question
+          text — and this map doesn't have it.</li>
+        <li><b>Company size is unspecified and it changes the shape.</b> Below roughly twenty people,
+          the manager and ops questions collapse or vanish, and "what's the context on this account"
+          is answered by turning around in a chair. This map assumes a team large enough for handoffs
+          to be real. If that's wrong, the tiering changes materially.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <span>46 questions</span><span>·</span>
+    <span>6 workflows</span><span>·</span>
+    <span>13 sourced / 33 inferred</span><span>·</span>
+    <span>Severity = blast radius, not frequency</span><span>·</span>
+    <span>Working document — not a finding</span>
+  </footer>
+
+</div>
+
+<script>
+const WF = {
+  SYS:{name:'Systems health',blurb:'Runs continuously, alerts on break. A prerequisite for the other five, not a peer — build 1–4 on top of broken plumbing and you get confident garbage.',order:1},
+  CTX:{name:'Context assembly',blurb:'Answers "what do I already know about this account." The dependency underneath almost everything else. Build second.',order:2},
+  QUE:{name:'Prioritised worklist',blurb:'One ranked queue per rep, refreshed daily. Highest documented lift of anything here — but unanswerable until the ICP is agreed.',order:3},
+  LOOP:{name:'Closed loop capture',blurb:'Pull disposition, objections and loss reasons back to marketing without asking a rep to type. The most neglected build in the set.',order:4},
+  LEAK:{name:'Funnel leak report',blurb:'One number per stage transition, plus the reconciliation between marketing\u2019s numbers and sales\u2019 numbers.',order:5},
+  JUDG:{name:'No workflow',blurb:'Judgment and incentive questions. Listed so they stop absorbing automation effort that cannot fix them.',order:6}
+};
+
+const D = [
+// tier 1
+{n:41,q:'Is this already in the system, and who owns it?',t:1,team:'O',a:'Y',ev:'Inferred',wf:'SYS',gaps:'13, 11',why:'Duplicate records and unclear ownership silently corrupt every ranked list built on top of them. A perfect priority queue over duplicate accounts is worse than no queue, because it is trusted.',evn:'Inferred. Data-vendor sources benchmark duplicate rates at under 5% for a healthy CRM, but no neutral study measures ownership-collision cost.'},
+{n:36,q:'Is anything broken in the capture path right now?',t:1,team:'O',a:'Y',ev:'Inferred',wf:'SYS',gaps:'13',why:'Forms, tracking and routing fail without an error message. Nobody asks this until a week of leads has already been lost, and by then the campaign is blamed instead of the plumbing.',evn:'Inferred. The failure mode is well known anecdotally; I found no published measurement of capture-path downtime.'},
+{n:23,q:'Are my emails actually landing?',t:1,team:'O',a:'Y',ev:'Sourced',wf:'SYS',gaps:'11',why:'Deliverability failure invalidates every downstream number without surfacing a single error. Reply rates look like a messaging problem when they are a domain-health problem.',evn:'Sourced (partially). Contact-data decay of roughly 2.1%/month compounding to about 22.5%/year traces to MarketingSherpa; competing figures run 25–35% (Salesmotion), 30–40% (attributed to Dun & Bradstreet), and up to 70.3% in high-turnover segments. Every one of these is published by a company selling enrichment. Use 20–35% and say so.'},
+{n:2,q:'What came in overnight that\u2019s mine and untouched?',t:1,team:'S',a:'Y',ev:'Sourced',wf:'QUE',gaps:'2, 13',why:'The single most measured failure in the entire set, and the cheapest to fix. Leads that are never touched are marketing spend set on fire, and nobody is accountable because nobody is looking.',evn:'Sourced. Harvard Business Review (2011), auditing 2,241 US companies with test web leads: 37% responded within an hour, 24% took over 24 hours, 23% never responded, and average response among responders was 42 hours. Note: "% of leads never contacted" varies wildly by source — 23% (HBR) up to 73% (Kixie, vendor-published, no methodology). Use HBR\u2019s ~23% as the defensible floor.'},
+{n:1,q:'Who do I contact first today?',t:1,team:'S',a:'Y',ev:'Sourced',wf:'QUE',gaps:'10',why:'Two failures collapsed into one: no ranking at all (reps work by recency or gut), and the wrong ranking unit (scores rank individuals while reps work accounts). Five mid-scoring contacts at one account beat one hot lead at a dead account, and most scoring cannot see that.',evn:'Sourced (weakly). Workato found lead-routing automation cut response from about 13 hours to about 3.5. Single-threaded deals reportedly close at ~5% vs ~30% when reaching five or more stakeholders — vendor-published, methodology undisclosed, directional only.'},
+{n:3,q:'What\u2019s the full history on this account before I call?',t:1,team:'S',a:'Y',ev:'Inferred',wf:'CTX',gaps:'6',why:'Answering this once kills the data-fragmentation complaint underneath half the list, and it is the substrate for the priority queue, the slipping-deal alert, and the multi-threading question. Nothing else works without it.',evn:'Inferred. The underlying claim — that data fragmentation is the biggest cause of misalignment — is asserted by multiple 2026 vendor sources who sell unified data. Treat as hypothesis.'},
+{n:12,q:'Why did sales reject these?',t:1,team:'B',a:'Y',ev:'Sourced',wf:'LOOP',gaps:'12',why:'The highest-leverage and most-skipped question here. It is the input to lead scoring, to the definition of a good lead, to content decisions and to spend. Most teams automate the attribution report and skip this, which is why their scoring never improves.',evn:'Sourced. 49% of CSOs report their sales org\u2019s definition of a qualified lead differs greatly from marketing\u2019s. Forrester (2024): 65% of sales and marketing professionals report a lack of alignment. Both figures reach me via compilations, not the primary reports.'},
+{n:13,q:'Which leads did we send that nobody touched?',t:1,team:'B',a:'Y',ev:'Sourced',wf:'LEAK',gaps:'2',why:'The accountability question. Marketing cannot prove lead quality while a fifth of leads are never worked, and sales cannot dispute quality on leads they never opened.',evn:'Sourced. See question 2 — HBR\u2019s 23%-never-responded is the floor; vendor sources claim 51–73% with no disclosed method.'},
+{n:42,q:'Why don\u2019t marketing\u2019s numbers match sales\u2019 numbers?',t:1,team:'O',a:'P',ev:'Sourced',wf:'LEAK',gaps:'9, 18',why:'The trust question. Until it is answered once, every dashboard gets argued with instead of used. Marketing attributes to a person; sales closes an account. Any lead-based model is structurally incapable of describing an account-based purchase.',evn:'Sourced. Forrester (2024): only 12% of misaligned organisations report shared-KPI adoption; just 52% of teams share common goals and metrics. Gartner puts the buying group at 6–10 for complex solutions; Forrester\u2019s State of Business Buying 2024 puts the average purchase at 13 stakeholders with ~89% of decisions crossing departments.'},
+// tier 2
+{n:5,q:'Is this contact still real, still there, still the right person?',t:2,team:'S',a:'Y',ev:'Sourced',wf:'CTX',gaps:'11',why:'Marketing segments on stale firmographics, reps hit dead numbers, and each side blames the other\u2019s list rather than the shared decay underneath both.',evn:'Sourced, but contested. Decay estimates span 22.5%/yr to 70.3%/yr across sources, all of them enrichment vendors. Job changes are the dominant driver; average tenure runs 2–4 years depending on the source.'},
+{n:11,q:'Which campaigns produced leads sales actually accepted?',t:2,team:'M',a:'Y',ev:'Sourced',wf:'LEAK',gaps:'1, 9',why:'Not "which campaigns produced leads" — accepted leads. The distinction is the whole point, and it is unanswerable while the definition of qualified is disputed.',evn:'Sourced. 49% of CSOs say the two definitions differ greatly. Aligned teams reportedly see marketing influence up to 29% of pipeline vs 10% where handoffs are broken (Sopro compilation, 2026).'},
+{n:19,q:'Where are leads dying between stages, and how many?',t:2,team:'B',a:'Y',ev:'Sourced',wf:'LEAK',gaps:'1, 2, 14',why:'One number per stage transition. Most teams have funnel dashboards and still cannot say where the leak is, because the stages are defined differently on each side of the handoff.',evn:'Sourced (indirectly). Handoff quality maps to pipeline influence — 29% vs 10% (Sopro, 2026, a compilation of compilations).'},
+{n:43,q:'Are stage definitions being followed, or is the pipeline fiction?',t:2,team:'O',a:'Y',ev:'Inferred',wf:'SYS',gaps:'1, 18',why:'Stages drift within a quarter of being agreed. If reps advance deals to hit activity metrics, every conversion rate above is fiction and the forecast is built on it.',evn:'Inferred. Related sourced fact: only 52% of teams share common goals and metrics.'},
+{n:25,q:'How many attempts have I made here, and what\u2019s next?',t:2,team:'S',a:'Y',ev:'Sourced',wf:'QUE',gaps:'3',why:'Persistence fails more reliably than speed, and it fails invisibly — nobody notices the second call that was never made.',evn:'Sourced (compilation). 50% of leads are never contacted a second time; 81% of sellers stop at five or fewer attempts, though 93% of converted leads are reached by the sixth attempt (outsales.ai, 2026 — original sources not individually audited).'},
+{n:4,q:'Which of my open deals went quiet or is slipping?',t:2,team:'S',a:'Y',ev:'Inferred',wf:'QUE',gaps:'18',why:'Silence is a signal nobody instruments. Reps notice a stalled deal when the forecast call forces them to, which is weeks too late.',evn:'Inferred.'},
+{n:6,q:'Who else at this account is engaging right now?',t:2,team:'S',a:'Y',ev:'Sourced',wf:'CTX',gaps:'9',why:'Marketing sees the engagement; sales sees the contact. Neither sees the account. This is the join that makes account-level anything possible.',evn:'Sourced. Buying groups run 6–10 (Gartner), 11.2 median above $50K (Forrester/6sense), 13 average (Forrester 2024), 14–23 for deals over $1M (Forrester 2023). Wide range, different definitions, same direction.'},
+{n:14,q:'Which accounts are showing intent right now?',t:2,team:'M',a:'Y',ev:'Sourced',wf:'QUE',gaps:'15',why:'Marketing optimises for capture — someone raised a hand. Sales needs readiness. A high engagement score six months before budget exists is a bad lead and a good account, and no shared model separates the two.',evn:'Sourced (context). Gartner: buyers spend only 17% of total purchase time meeting vendors. Forrester (2024): 41% already have a preferred vendor before formal evaluation begins.'},
+{n:15,q:'Which in-market accounts is nobody working?',t:2,team:'B',a:'Y',ev:'Inferred',wf:'QUE',gaps:'15',why:'The inverse of the intent question and the one that actually creates pipeline. Intent data with no coverage check is a report, not a workflow.',evn:'Inferred.'},
+{n:16,q:'Which content is actually being used, and in what stage?',t:2,team:'M',a:'Y',ev:'Sourced',wf:'LOOP',gaps:'4',why:'Marketing measures content by production and downloads. Sales measures it by whether it survives a call. Nobody measures the second one.',evn:'Sourced. Forrester: 60–70% of B2B marketing content goes unused by sales — the best-attributed version of this claim. Warning: the popular "90%" and "91%" figures are unsourced; tracing the 90% claim finds three competing attributions and no primary study. Adjacent hard data: Veeva CRM data (2022–Q1 2025) found pharma reps shared marketing content in only ~48% of meetings.'},
+{n:30,q:'Why did we lose that one — and is it a pattern?',t:2,team:'B',a:'P',ev:'Inferred',wf:'LOOP',gaps:'12',why:'Question 12 captures why leads get rejected. This captures why deals get lost. Different people, different causes, and most teams instrument neither. Reps close-out as "went dark" because the picklist is faster than the truth.',evn:'Inferred.'},
+{n:26,q:'Who are we up against, and what beats them?',t:2,team:'B',a:'P',ev:'Inferred',wf:'LOOP',gaps:'4, 12',why:'Competitive intel lives in reps\u2019 heads and dies there. Marketing writes battlecards from the website; sales needs them from the last ten losses.',evn:'Inferred.'},
+{n:22,q:'Can I legally contact this person?',t:2,team:'O',a:'Y',ev:'Inferred',wf:'SYS',gaps:'—',why:'Consent, GDPR, do-not-contact. Binary, automatable, and catastrophic when wrong. Absent from most gap analyses because it is boring until it is a fine.',evn:'Inferred. Regulatory, not a research question.'},
+// tier 3
+{n:21,q:'Who goes on my prospecting list this week?',t:3,team:'S',a:'Y',ev:'Inferred',wf:'QUE',gaps:'10, 15',why:'Distinct from "who do I contact first" — that question ranks an existing queue, this one builds a list that does not exist yet. Different inputs, different workflow.',evn:'Inferred.'},
+{n:7,q:'Who else should I be talking to here?',t:3,team:'S',a:'P',ev:'Sourced',wf:'CTX',gaps:'9, 10',why:'Single-threading is a structural liability, not a rep habit. The champion leaves, loses budget, or deprioritises, and the deal dies with them.',evn:'Sourced (weakly). Multi-threaded deals reportedly close at roughly 2–6x single-threaded rates, but every version of this stat is vendor-published without disclosed methodology.'},
+{n:9,q:'What objection is coming and what\u2019s the answer?',t:3,team:'B',a:'P',ev:'Inferred',wf:'LOOP',gaps:'4, 12',why:'Overlaps inputs with question 26 (both need call data) but produces a different answer. Objection patterns are the most valuable thing sales knows and the least likely to reach marketing.',evn:'Inferred.'},
+{n:8,q:'What do I send after this call?',t:3,team:'B',a:'P',ev:'Sourced',wf:'LOOP',gaps:'4',why:'The findability half of the content problem. If reps cannot locate content in under a minute they write their own, badly, and marketing\u2019s library becomes theatre.',evn:'Sourced (adjacent). A CMO Council study reported up to 40% of a rep\u2019s time goes to creating presentations and customising messaging. Firebrick\u2019s survey of 50 tech sales leaders found fewer than 25% consistently use marketing\u2019s presentations — small sample, directional only.'},
+{n:24,q:'What\u2019s my hook — why reach out to this person today?',t:3,team:'B',a:'P',ev:'Inferred',wf:'QUE',gaps:'15',why:'Related to the intent question but a different output: 14 answers which accounts, this answers what to say. Reps burn their best hours manufacturing relevance that a system could hand them.',evn:'Inferred. Related: Gartner (2024) found 73% of buyers actively avoid vendors that send irrelevant outreach.'},
+{n:39,q:'What is sales waiting on from us?',t:3,team:'B',a:'Y',ev:'Inferred',wf:'LOOP',gaps:'4, 12',why:'The asset request queue lives in DMs and gets lost. Marketing builds what it planned; sales needed something else three weeks ago.',evn:'Inferred.'},
+{n:38,q:'Why did volume spike or drop today?',t:3,team:'M',a:'P',ev:'Inferred',wf:'LEAK',gaps:'—',why:'Usually answered by guessing. The honest answer is often "a form broke" or "a filter changed," which is question 36 wearing a costume.',evn:'Inferred.'},
+{n:37,q:'Is this campaign pacing to budget and target?',t:3,team:'M',a:'Y',ev:'Inferred',wf:'LEAK',gaps:'—',why:'Mechanical, high frequency, low blast radius. Worth automating for hours saved rather than errors prevented.',evn:'Inferred.'},
+{n:31,q:'Which rep is off-pace — activity, pipeline, or conversion?',t:3,team:'S',a:'Y',ev:'Inferred',wf:'LEAK',gaps:'18',why:'The diagnosis matters more than the flag. Three different problems, three different coaching responses, and most dashboards show only the miss.',evn:'Inferred.'},
+{n:34,q:'Is our cycle getting longer, and where?',t:3,team:'B',a:'Y',ev:'Sourced',wf:'LEAK',gaps:'18',why:'Cycle length is the earliest signal that targeting drifted. It shows up months before the revenue miss.',evn:'Sourced (context). Larger buying committees correlate with longer cycles; committees have grown from around 5.4 stakeholders in 2015 to 8–13 today across CEB/Gartner and Forrester sources.'},
+{n:33,q:'Where is my team\u2019s time actually going?',t:3,team:'S',a:'Y',ev:'Sourced',wf:'LEAK',gaps:'—',why:'Reps report selling time; systems know the truth. The gap between the two is the automation business case.',evn:'Sourced (weakly). A CMO Council study reported up to 40% of a rep\u2019s time spent on presentation-building and pitch prep. Other sources put admin at 25%+. Neither is recent.'},
+{n:46,q:'Which customers are at risk, and which are expanding?',t:3,team:'B',a:'Y',ev:'Sourced',wf:'CTX',gaps:'16',why:'Marketing\u2019s mandate usually ends at closed-won. Expansion signals, churn risk and customer proof sit in CS, unowned by either team — including the content sales most wants.',evn:'Sourced (adjacent). 36% of sales professionals cite customer testimonials as the most effective enablement content for winning deals (Sopro compilation, 2026).'},
+{n:28,q:'What\u2019s blocking the paperwork right now?',t:3,team:'S',a:'Y',ev:'Inferred',wf:'CTX',gaps:'—',why:'Security review, legal, procurement. Deals die in the last mile and the delay is invisible in the CRM until the close date slips a third time.',evn:'Inferred.'},
+{n:29,q:'Who can vouch for us to this buyer?',t:3,team:'B',a:'Y',ev:'Sourced',wf:'CTX',gaps:'16',why:'Reference matching by segment and use case. Mechanical, and almost always done by asking around in Slack.',evn:'Sourced (adjacent). Testimonials rank as the most effective enablement content for 36% of sales pros.'},
+{n:27,q:'What can I offer without asking permission?',t:3,team:'S',a:'Y',ev:'Inferred',wf:'CTX',gaps:'—',why:'Discount bands and terms. A rule lookup that currently costs a Slack thread and half a day.',evn:'Inferred.'},
+{n:18,q:'Is sales saying what we\u2019re publishing?',t:3,team:'B',a:'P',ev:'Sourced',wf:'LOOP',gaps:'5',why:'Message drift is measurable and nobody measures it. Buyers notice before either team does.',evn:'Sourced. 69% of B2B buyers report inconsistent information between a vendor\u2019s website and its sellers.'},
+{n:40,q:'Are we visible where buyers are actually looking?',t:3,team:'M',a:'P',ev:'Sourced',wf:'LEAK',gaps:'9',why:'Search, AI answers, review sites, peer communities. Most of the buying journey happens where no pixel reaches, which is also why attribution cannot see it.',evn:'Sourced (context). Gartner: buyers spend only 17% of purchase time with vendors. Warning: the ubiquitous "60–70% of the journey is complete before sales contact" claim has conflicting attributions across sources and no primary document I could locate. Treat as folklore.'},
+// tier 4
+{n:20,q:'Do we have enough pipeline for the quarter?',t:4,team:'B',a:'P',ev:'Sourced',wf:'JUDG',gaps:'18',why:'Asked daily, answerable weekly, trusted never. Marketing forecasts from historical conversion, sales from rep judgment. The two are built on different assumptions and are only reconciled after they both miss.',evn:'Sourced (indirectly). Only 12% of misaligned organisations report shared-KPI adoption (Forrester 2024, via compilation).'},
+{n:32,q:'Which deal needs me personally this week?',t:4,team:'S',a:'P',ev:'Inferred',wf:'JUDG',gaps:'18',why:'A system can surface candidates. Which one a manager should spend political capital on is not a scoring problem.',evn:'Inferred.'},
+{n:10,q:'Which deals do I commit to this month?',t:4,team:'S',a:'N',ev:'Inferred',wf:'JUDG',gaps:'18',why:'Reps price in information no system holds. Automating the commit call replaces judgment with a number that is confidently wrong.',evn:'Inferred.'},
+{n:17,q:'Where does the next dollar go?',t:4,team:'M',a:'N',ev:'Sourced',wf:'JUDG',gaps:'9',why:'Unanswerable while 83% of buyer time is unobserved. Attribution can rank what it can see, which is the wrong question dressed as the right one.',evn:'Sourced (context). Gartner: 17% of purchase time is spent with vendors. Forrester (2024): 41% of buyers have a preferred vendor before evaluation begins. Warning: the "$1 trillion annual cost of misalignment" and "208% revenue increase" figures circulate without any traceable methodology — do not build a case on either.'},
+{n:35,q:'Is the team ramped on the new pitch?',t:4,team:'B',a:'N',ev:'Sourced',wf:'JUDG',gaps:'4, 5',why:'Completion tracking is automatable and meaningless. Whether a rep can hold the argument under pressure is not.',evn:'Sourced (adjacent). 69% of buyers report inconsistent information between site and sellers — the symptom, not a measure of ramp.'},
+{n:44,q:'Should we be selling to this segment at all?',t:4,team:'B',a:'N',ev:'Sourced',wf:'JUDG',gaps:'1, 17',why:'The question underneath the ICP dispute. Structural, and pulling against it is the comp plan: marketing is paid on volume, sales on revenue, and volume targets reward loose qualification. This is why definition agreements decay within two quarters.',evn:'Sourced (partially). Forrester (2024): 65% report a lack of alignment while 82% of C-suite executives believe their teams are perfectly joined up. The incentive claim itself is my inference.'},
+{n:45,q:'What just changed out there that we need to answer?',t:4,team:'B',a:'N',ev:'Inferred',wf:'JUDG',gaps:'—',why:'Competitor launch, pricing move, regulation. A system can surface the change; deciding whether it matters is the job.',evn:'Inferred.'}
+];
+
+const KEY = new Set([1,2,3,11,12,23,26,30,36,41,42]);
+const TEAM_LBL = {S:'Sales',M:'Mktg',B:'Both',O:'Ops'};
+const AUTO_LBL = {Y:'Yes',P:'Partly',N:'No'};
+const TIER_LBL = {
+  1:['Critical','Dependency roots and silent failures'],
+  2:['High','Directly costs pipeline'],
+  3:['Medium','Real friction, contained blast radius'],
+  4:['Hands-off','Judgment calls — automating these makes it worse']
+};
+
+let F = {tier:new Set(),team:new Set(),auto:new Set(),wf:new Set(),ev:new Set()};
+let q8020 = false, term = '';
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pass = d => {
+  if(q8020 && !KEY.has(d.n)) return false;
+  if(F.tier.size && !F.tier.has(String(d.t))) return false;
+  if(F.team.size && !F.team.has(d.team)) return false;
+  if(F.auto.size && !F.auto.has(d.a)) return false;
+  if(F.wf.size && !F.wf.has(d.wf)) return false;
+  if(F.ev.size && !F.ev.has(d.ev)) return false;
+  if(term && !(d.q+' '+d.why).toLowerCase().includes(term)) return false;
+  return true;
+};
+
+function meter(t){return `<span class="meter" data-tier="${t}" title="Tier ${t} — ${TIER_LBL[t][0]}"><i></i><i></i><i></i><i></i></span>`}
+
+function render(){
+  const vis = D.filter(pass);
+  const host = document.getElementById('rows');
+
+  if(!vis.length){
+    host.innerHTML = `<div class="empty"><b>Nothing matches those filters.</b>Loosen one, or reset to see all 46.</div>`;
+  } else {
+    let html = '';
+    [1,2,3,4].forEach(t => {
+      const g = vis.filter(d => d.t === t);
+      if(!g.length) return;
+      html += `<div class="tier-band" data-t="${t}"><span class="bar"></span>
+        <h3>Tier ${t} · ${TIER_LBL[t][0]}</h3>
+        <span class="sub">${TIER_LBL[t][1]}</span>
+        <span class="cnt">${g.length} shown</span></div>`;
+      g.forEach(d => {
+        html += `<div class="row" role="button" tabindex="0" data-n="${d.n}" data-key="${KEY.has(d.n)?1:0}" aria-expanded="false">
+          <span class="num">${String(d.n).padStart(2,'0')}</span>
+          <span class="q">${esc(d.q)}${KEY.has(d.n)?'<span class="star">80/20</span>':''}
+            <span class="meta-m">${meter(d.t)} <span class="chip">${TEAM_LBL[d.team]}</span>
+            <span class="chip auto-${d.a}">Auto: ${AUTO_LBL[d.a]}</span>
+            <span class="chip ev-${d.ev}">${d.ev}</span>
+            <span class="chip">${d.wf}</span></span>
+          </span>
+          <span class="cell-d">${meter(d.t)}</span>
+          <span class="cell-d"><span class="chip">${TEAM_LBL[d.team]}</span></span>
+          <span class="cell-d"><span class="chip auto-${d.a}">${AUTO_LBL[d.a]}</span></span>
+          <span class="cell-d"><span class="chip ev-${d.ev}">${d.ev}</span></span>
+          <span class="cell-d gaps">${d.wf} · gap ${esc(d.gaps)}</span>
+        </div>
+        <div class="detail" id="det-${d.n}" hidden>
+          <span class="lbl">Why it sits here</span>
+          <p>${esc(d.why)}</p>
+          <div class="ev"><span class="lbl">Evidence</span><p>${esc(d.evn)}</p></div>
+          <span class="lbl" style="margin-top:10px">Workflow</span>
+          <p><b>${WF[d.wf].name}</b> — ${esc(WF[d.wf].blurb)}</p>
+        </div>`;
+      });
+    });
+    host.innerHTML = html;
+  }
+
+  // verdict strip
+  const auto = vis.filter(d=>d.a==='Y').length;
+  const pct = vis.length ? Math.round(auto/vis.length*100) : 0;
+  document.getElementById('v-showing').textContent = vis.length;
+  document.getElementById('v-auto').textContent = auto;
+  document.getElementById('v-autopct').textContent = `(${pct}%)`;
+  document.getElementById('v-crit').textContent = vis.filter(d=>d.t===1).length;
+  document.getElementById('v-hands').textContent = vis.filter(d=>d.a==='N').length;
+
+  const tot = vis.length || 1;
+  [1,2,3,4].forEach(t => {
+    const c = vis.filter(d=>d.t===t).length;
+    const el = document.getElementById('d'+t);
+    el.style.width = (c/tot*160) + 'px';
+    el.style.opacity = c ? 1 : .15;
+    el.title = `Tier ${t} — ${c} question${c===1?'':'s'}`;
+  });
+
+  const active = Object.values(F).reduce((a,s)=>a+s.size,0) + (q8020?1:0) + (term?1:0);
+  document.getElementById('f-summary').textContent =
+    active ? `${active} filter${active===1?'':'s'} active · ${vis.length} of 46 shown` : 'No filters active';
+}
+
+// row expand
+document.getElementById('rows').addEventListener('click', e => {
+  const r = e.target.closest('.row'); if(!r) return; toggle(r);
+});
+document.getElementById('rows').addEventListener('keydown', e => {
+  if(e.key!=='Enter' && e.key!==' ') return;
+  const r = e.target.closest('.row'); if(!r) return;
+  e.preventDefault(); toggle(r);
+});
+function toggle(r){
+  const open = r.getAttribute('aria-expanded') === 'true';
+  r.setAttribute('aria-expanded', String(!open));
+  document.getElementById('det-'+r.dataset.n).hidden = open;
+}
+
+// filters
+document.querySelectorAll('button.tog').forEach(b => {
+  b.addEventListener('click', () => {
+    const {f,v} = b.dataset;
+    const on = b.getAttribute('aria-pressed') === 'true';
+    b.setAttribute('aria-pressed', String(!on));
+    on ? F[f].delete(v) : F[f].add(v);
+    render();
+  });
+});
+document.getElementById('search').addEventListener('input', e => {
+  term = e.target.value.trim().toLowerCase(); render();
+});
+document.getElementById('btn-8020').addEventListener('click', e => {
+  q8020 = !q8020;
+  e.currentTarget.setAttribute('aria-pressed', String(q8020));
+  e.currentTarget.classList.toggle('on', q8020);
+  e.currentTarget.textContent = q8020 ? 'Showing the 80/20 · clear' : 'Show the 80/20 only';
+  render();
+});
+document.getElementById('btn-reset').addEventListener('click', () => {
+  Object.values(F).forEach(s => s.clear());
+  q8020 = false; term = '';
+  document.getElementById('search').value = '';
+  document.querySelectorAll('button.tog').forEach(b => b.setAttribute('aria-pressed','false'));
+  const k = document.getElementById('btn-8020');
+  k.setAttribute('aria-pressed','false'); k.classList.remove('on');
+  k.textContent = 'Show the 80/20 only';
+  render();
+});
+
+// workflow cards
+document.getElementById('wf-grid').innerHTML = Object.entries(WF)
+  .sort((a,b) => a[1].order - b[1].order)
+  .map(([code,w]) => {
+    const items = D.filter(d => d.wf === code);
+    const y = items.filter(d => d.a === 'Y').length;
+    return `<div class="wf-card${w.order===1?' first':''}">
+      <span class="code">${code} · Build ${w.order}${w.order===1?' first':''}</span>
+      <h3>${w.name}</h3>
+      <p>${w.blurb}</p>
+      <span class="stat">${items.length} questions · ${y} fully automatable</span>
+    </div>`;
+  }).join('');
+
+render();
+</script>
+</body>
+</html>
